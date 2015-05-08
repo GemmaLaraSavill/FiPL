@@ -1,5 +1,5 @@
 # FiPL
-FiPL "My First Programming Language" por Gemma Lara Savill. Trabajo Fin de Grado 2015. Grado en Ingeniería en Tecnologías de la Información UNED
+FiPL "My First Programming Language" por Gemma Lara Savill. Proyecto Fin de Grado 2015. Grado en Ingeniería en Tecnologías de la Información UNED
 
 # Descripción
 Mi primer lenguaje de programación. App para el sistema operativo Android que consiste en un entorno para que niños y niñas de educación primaria hagan sus primeros programas. Permite programar el comportamiento de un pequeño robot que se mueve por el escenario e interactúa con él.
