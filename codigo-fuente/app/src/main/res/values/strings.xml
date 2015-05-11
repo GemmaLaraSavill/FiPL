@@ -53,26 +53,27 @@
     <!--mission one-->
     <string name="mission1_title">Mission One</string>
     <string name="mission1_subtitle">Introducing the MOVE block</string>
-    <string name="mission1_description">Welcome to your first mission.</string>
+    <string name="mission1_description">Welcome to your first mission.\n\nYou must create a program for the Robot.\nTo create a program you have to drag the command blocks and connect them under the Start block.\n\nYou are going to use the first type of command block: Move.\n\nThe Robot has to get to the start to accomplish the mission.\n\nBut careful! the Robot must stay within the colored square area.\n\nLet\'s go and get the star! And you will be able to use new blocks in the next mission.\n</string>
     <string name="mission1_start_hint">Drag the Move block under the Start block and press RUN</string>
 
     <!--mission two-->
     <string name="mission2_title">Mission Two</string>
     <string name="mission2_subtitle">Let\'s speed things up</string>
-    <string name="mission2_description">Mover el robot hasta el recuadro color rojo, pero ahora más rápido que antes</string>
-    <string name="mission2_failed_explanation">You forgot to make to Robot faster.</string>
+    <string name="mission2_description">Now let\'s try the speed command block..\n\nCreate a program that gets the Robot to the star again, but this time make it go faster than last time.</string>
+    <string name="mission2_failed_explanation">Oh, you forgot to make to Robot faster.\n\nTry again!</string>
 
     <!--mission three-->
     <string name="mission3_title">Mission Three</string>
     <string name="mission3_subtitle">Using the number sensor</string>
-    <string name="mission3_description">Mover el robot hasta el recuadro color rojo una vez que hayas pulsado el número 5</string>
-    <string name="mission3_failed_explanation">The Robot has to wait until you press number five. Then he has to go to the target.</string>
+    <string name="mission3_description">In this mission you have two new command blocks to use and they can work together: Wait y Number.\n\nWait does just that, it makes the Robot wait. The number block is a sensor, this means the Robot can detect what number has been pressed. Sensor blocks connect differently, they connect to the right of some blocks. Their shape gives you a hint.\n\nYour mission is to create a program so that the Robot moves towards the star once it has waited for you to press the number 5 button.</string>
+    <string name="mission3_failed_explanation">The Robot has to wait until you press number five. Then he has to go to the target.\n\nThere is a hint in these words: wait, number 5, move...</string>
 
     <!--mission four -->
     <string name="mission4_title">Mission Four</string>
     <string name="mission4_subtitle">I can repeat, repeat, repeat comands</string>
-    <string name="mission4_description">Mover el robot hasta el recuadro color rojo, pero cuando llegue se posicione de nuevo en el inicio (0,0)</string>
+    <string name="mission4_description">In this new mission you are going to get three new command blocks: Repeat, Color and Position.\n\nRepeat is a special command: it makes the Robot repeat all the commands it connects. If you want a command to be repeated place it under a Repeat block.\n\nColor: the Robot has a color sensor that detects the color of the floor tile he is standing in. You can use the Color command block to tell the Robot what color you want to detect in your program.\n\nPosition: will make the Robot jump from one square to another. The Robot\'s floor is a square matrix of 5 squares wide times 5 squares tall. The Robot understands the position of the first square as 1,1 and the last one is 5,5.. going through 1,2 and 1,3... if you give it a try you will understand.\n\nThe mission is to go to the red square and then end up on the square with the star.</string>
     <string name="mission4_failed_explanation">First the Robot has to get to the red square. Then he has to change his position to the first block. If you count the squares you can calculate the position. The first square is 1,1.</string>
+    <string name="mission_average_text">You have made the Robot get to all the targets, but you can do this making a program using all the types of command blocks you have available.\n\nCan you imagine how the program would be?</string>
 
     <!--mission five -->
     <string name="mission5_title">Mission Five</string>
@@ -88,7 +89,6 @@
     <string name="mission_success">That was great! Ready for the next mission?</string>
     <string name="congratulations">Congratulations</string>
     <string name="mission_average">Not bad</string>
-    <string name="mission_average_text">You managed to solve the mission, but there is a better way to do it</string>
 
 
     <string name="robot_waiting_for_nothing">Waiting....</string>
@@ -108,13 +108,21 @@
     <string name="mission_load">Load mission</string>
 
     <!--pantalla de ayuda-->
-    <string name="help_text">Help screen</string>
-    <string name="help_move_block">Este es el comando MOVER. Como ves tiene</string>
-    <string name="help_wait_block">Wait block</string>
-    <string name="help_position_block">Position Block</string>
-    <string name="help_repeat_block">Repeat Block</string>
-    <string name="help_numberSensor_block">Number Sensor Block</string>
-    <string name="help_colorsensor_block">Color Sensor Block</string>
-    <string name="help_speed_block">Speed Block</string>
+    <string name="help_text">FiPL "My First Programming Language" is an app to learn to program.\n\nYou will discover different commands to move the Robot around it\'s stage.\n\nTo create a progam you have to drag a command block from the center panel to under the Start block.\n\nYou can reorder the commands and drag them to the waste bin to delete them.\nTo make the Robot start your program press the "RUN" button.\n\nThe Robot will show you it\'s programming logs. This is very useful information to a programmer: if the program doesn\'t go like you imagined you can try and see why by reading the log.\nYou can turn the panel to see the Robot\'s log or go back to the blocks by using the buttons on the menu bar at the top of the screen.\n\nI recommend that you use the missions to learn the commands. You can read the missions and load them from the Missions screen, available from menu at the top of the main screen.\n\nThese are the types of blocks you can use:\n</string>
+
+    <string name="help_move_block">This is the MOVE command block.\nYou can drag it and connect it under other blocks.\nYou can press the arrow and change the direction you want the Robot to move: up, down, left or right.</string>
+
+    <string name="help_wait_block">This is the WAIT command block.\nYou can drag it and connect it under other blocks.\nThis command will make the Robot pause it\'s program and wait. You have to give it some event so that it can continue it\'s program. To do so you can use a sensor command block.\nTo learn how to use this block I recommend Mission Three.</string>
+
+    <string name="help_position_block">This is the POSITION command block.\nYou can drag it and connect it under other blocks.\nThe Robot is on a stage made of squares that is called a matrix or array. The Robot understands each square as a set of position coordinates. To do this it counts the squares on the X axis (horizontal) and the squares on the Y axis (vertical). The first square is 1,1 the next one to the right is 1,2 and the last square of the first row is 1,5 do you get it?\nSometimes trying is the fastest way to learn.</string>
+
+    <string name="help_repeat_block">This is the REPEAT command block.\nYou can drag it and connect it under other blocks.\nThis is a special block that "hugs" the command blocks that are connected under it. This is why it has a different color, so you can see the blocks it is connecting.\nIf the Repeat block connects some blocks the Robot will repeat these commands over and over again. In programming this is called a loop.\nTo get out of the loop you can use the sensor blocks: when a sensor detects the right number or color it will be released from the repeat loop and will continue the program at the first command after the last command of the loop.</string>
+
+    <string name="help_numberSensor_block">This is the NUMBER command block and it has a different shape because it is a sensor.\nYou can drag it and connect it to the right of other blocks that have a dent to take it.\nThis block tells the Robot it has to detect a number. The Robot has a number sensor that detects the last number button that has been pressed, the number buttons are under the Robots color tiled floor.\nWhen you connect a number sensor to another command block the Robot will repeat the command untile it detects the number.\nYou can learn how to use this block in Mission Three.</string>
+
+    <string name="help_colorsensor_block">This is the COLOR command block and it has a different shape because it is a sensor.\nYou can drag it and connect it to the right of other blocks that have a dent to take it.\nYou might have noticed, but the Robot can detect the color of the square it is on. It shows you the color it detects in a little square below his color tiled floor.\nWhen you connect a color sensor to a Repeat command block, the Robot won\'t stop repeating until it is over a square of the color you have selected. You can select the color you want to detect within the list of colors in the color command block.\nYou will be able to make the Robot performa a lot of different programs... but carefull about hitting the walls around the colored floor!</string>
+
+    <string name="help_speed_block">This is the SPEED command block.\nYou can drag it and connect it under other blocks.\nIt controls the speed the Robot moves at. The higher the number selected on this block, the faster the Robot will go.</string>
+    <string name="wastepaperbasket_hint">Drag your blocks here to delete them</string>
 
 </resources>
