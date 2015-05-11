@@ -234,14 +234,15 @@
                     android:layout_weight="0.33"
                     android:gravity="center_vertical|center_horizontal">
                 <!--android:background="@drawable/run_button_images"-->
-             <ToggleButton
-                 android:id="@+id/runButton"
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:textOn="@string/run_off"
-                 android:textOff="@string/run_on"
-                 android:checked="false"
-                 android:padding="20dp" />
+                    <ToggleButton
+                        android:id="@+id/runButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textOn="@string/run_off"
+                        android:textOff="@string/run_on"
+                        android:checked="false"
+                        android:background="@drawable/toggle_style"
+                        style="@style/FiPLToggleButton" />
                 </LinearLayout>
 
                 <LinearLayout
