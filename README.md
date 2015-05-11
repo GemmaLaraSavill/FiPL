@@ -11,5 +11,10 @@ Para que el aprendizaje sea escalonado, cuando ejecute el sistema por primera ve
 usuario puede completar. Serán muy simples y el objetivo de cada misión será introducir el uso de uno o dos comandos nuevos.
 
 # Requisitos
+Tablet entre 7 y 10 pulgadas con 1 Gb RAM
+con Sistema Operativo Android mínimo versión 14 (Ice Cream Sandwich) hasta la última versión 22 (Lollipop)
 
 # Cómo instalar
+Descargar Android Studio https://developer.android.com/sdk/index.html
+Si no se dispone de una tablet física crear un emulador de tablet desde Android Studio
+https://developer.android.com/tools/building/building-studio.html
