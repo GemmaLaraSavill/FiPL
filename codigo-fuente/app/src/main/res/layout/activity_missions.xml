@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1">
+
+    <ListView
+        android:id="@+id/missionList"
+        android:layout_weight="0.3"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent">
+    </ListView>
+
+    <ScrollView
+        android:layout_weight="0.7"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingLeft="60dp"
+            android:paddingTop="20dp"
+            android:paddingRight="30dp"
+            android:paddingBottom="20dp">
+
+        <TextView
+            android:id="@+id/missionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/HeaderText" />
+        <TextView
+            android:id="@+id/missionSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/SubHeaderText" />
+
+        <TextView
+        android:id="@+id/missionText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/NormalText" />
+
+            <Button
+                android:id="@+id/loadMissionBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mission_load"
+                android:background="@drawable/big_button"
+                android:paddingLeft="25dp"
+                android:paddingTop="15dp"
+                android:paddingRight="25dp"
+                android:paddingBottom="15dp"
+                android:singleLine="false"
+                android:textAlignment="center"
+                android:gravity="center_vertical|center_horizontal"
+                style="@style/FiPLbutton"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp" />
+
+    </LinearLayout>
+
+</ScrollView>
+    </LinearLayout>

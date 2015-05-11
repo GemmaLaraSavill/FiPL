@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FiPL</string>
+    <string name="action_back">Volver a programar</string>
+    <string name="action_logScreen">Consola del Robot</string>
+    <string name="action_closeApp">Cerrar app</string>
+    <string name="action_helpScreen">Ayuda</string>
+    <string name="action_missionScreen">Misiones</string>
+    <string name="color">Color</string>
+    <string name="missions_text">Texto con información sobre las misiones</string>
+    <string name="move">Mover</string>
+    <string name="number">Número</string>
+    <string name="position">Posición</string>
+    <string name="repeat">Repetir</string>
+    <string name="speed">Velocidad</string>
+    <string name="start">Inicio</string>
+    <string name="wait">Esperar</string>
+    <string name="param_down">Abajo</string>
+    <string name="param_left">Izquierda</string>
+    <string name="param_right">Derecha</string>
+    <string name="param_up">Arriba</string>
+    <string name="texto_abajo">Area para el botón de ejecutar y tal vez mensajes al usuario</string>
+    <string name="commandPaletteTitle">Commandos:</string>
+    <string name="programmingCanvasTitle">Arrastra tus comandos aquí:</string>
+    <string name="run_off">DETENER</string>
+    <string name="run_on">EJECUTAR</string>
+    <string name="action_blockPalette">Volver a los bloques</string>
+
+
+
+    <string name="robot_ready_txt">¡Estoy listo!</string>
+    <string name="robot_start_txt">Programa iniciado</string>
+    <string name="robot_step_right_txt">Paso a la derecha</string>
+    <string name="robot_step_down_txt">Paso hacia abajo</string>
+    <string name="robot_step_left_txt">Paso a la izquierda</string>
+    <string name="robot_step_up_txt">Paso hacia arriba</string>
+    <string name="robot_outside_txt">Alerta: obstáculo</string>
+    <string name="robot_error_txt">Oh, no... ¡¡ERROR!!</string>
+    <string name="robot_endofprogram_txt">Fin de programa</string>
+    <string name="robot_stopped_txt">Programa detenido</string>
+
+
+    <!--mision cero-->
+    <string name="mission0_title">Crea un programa</string>
+    <string name="mission0_subtitle">Podrás usar TODOS los comandos</string>
+    <string name="mission0_description">Usa los bloques para crear un programa y controlar al Robot.</string>
+
+    <!--mision uno-->
+    <string name="mission1_title">Misión Uno</string>
+    <string name="mission1_subtitle">Vamos a usar el comando MOVER</string>
+    <string name="mission1_description">Esta es tu primera misión.\n\nDeberás crear un programa para el Robot.\nPara crear el programa tienes que arrastrar los bloques de comandos debajo de Inicio.\n\nVas a usar el primer tipo de comando: mover.\n\nEl Robot tiene que ir hasta la estrella para cumplir la misión.\n\nPero ¡cuidado! el Robot no puede salirse de su suelo de cuadraditos.\n\n¡A por la estrella! Y podrás usar más comandos en la siguiente misión.\n</string>
+    <string name="mission1_start_hint">Arrastra el bloque Mover debajo del bloque Inicio y pulsa EJECUTAR</string>
+
+    <!--mision dos-->
+    <string name="mission2_title">Misión Dos</string>
+    <string name="mission2_subtitle">Vamos a darle velocidad</string>
+    <string name="mission2_description">Ahora vamos a probar con el comando Velocidad.\n\nVuelve a crear un programa que que mueva el Robot hasta la estrella, pero ahora más rápido que antes.</string>
+    <string name="mission2_failed_explanation">Se te ha olvidado incrementar la velocidad del Robot.\n\n¡Inténtalo de nuevo!</string>
+
+    <!--mision tres-->
+    <string name="mission3_title">Misión Tres</string>
+    <string name="mission3_subtitle">Usando el sensor de número</string>
+    <string name="mission3_description">En esta misión tienes dos nuevos comandos que pueden funcionar juntos: Espera y Número.\n\nEspera hace esperar al Robot. El bloque número es un sensor, esto significa que el Robot puede detectar qué número has pulsado. Los sensores se conectan diferente, se contectan a la derecha de algunos bloques. Su forma te da una pista.\n\nTu misión es crear un programa en la que el Robot se mueva hasta la estrella cuando hayas pulsado el número 5.</string>
+    <string name="mission3_failed_explanation">El Robot tiene que esperar hasta que pulses el número 5 antes de moverse hasta el objetivo.\n\nHay una pista en este texto: esperar, numero 5, moverse...</string>
+
+    <!--mision cuatro-->
+    <string name="mission4_title">Misión Cuatro</string>
+    <string name="mission4_subtitle">Puedo repetir, repetir, repetir los comandos</string>
+    <string name="mission4_description">En esta nueva misión vas a tener tres comandos nuevos: REPETIR, COLOR y POSICIÓN.\n\nREPETIR es un comando especial: repite todos los comandos que conecta. Si quieres que se repita un comando ponlo detrás de Repetir.\n\nCOLOR: el Robot tiene un sensor de Color que detecta el color del suelo por el que se mueve. Puedes usar el bloque Color para decirle al Robot el color que quieres detectar.\n\nPOSICIÓN hará que el Robot salte de un cuadrado a otro. El suelo del Robot es una cuadrícula de 5 cuadrados de ancho por 5 cuadrados de alto. El Robot entiende las posiciones de el primer cuadrado 1,1 hasta el último 5,5.. pasando por 1,2 el 1,3... si lo pruebas lo verás.\n\nLa misión es llegar hasta el cuadrado ROJO y luego cambiar de posición al cuadrado de la estrella.</string>
+
+    <!--mission cinco-->
+    <string name="mission5_title">Misión Cinco</string>
+    <string name="mission5_subtitle"></string>
+    <string name="mission5_description"></string>
+
+
+
+
+
+
+    <string name="action_mission_dialog">Leer la misión</string>
+    <string name="mission_accomplished">¡LLEGADO A OBJETIVO!</string>
+    <string name="mission_not_accomplished">Misión no cumplida</string>
+    <string name="try_again">Vuelve a intentarlo</string>
+    <string name="mission_success">¡Lo has hecho muy bien!\n\n¿Pasamos a la siguiente misión?\n</string>
+    <string name="congratulations">Enhorabuena</string>
+    <string name="mission_average">No está mal</string>
+    <string name="mission_average_text">Has conseguido que el Robot llegue a los objetivos, pero se puede escribir un programa usando todos los tipos de bloques.\n\n¿Te imaginas como es?</string>
+    <string name="robot_waiting_for_nothing">Esperando....</string>
+    <string name="robot_waiting_dont_know">No sé que espero</string>
+    <string name="robot_waiting_for_number">Esperando que se pulse el botón número</string>
+    <string name="robot_speed_change_txt">Velocidad a</string>
+    <string name="robot_number_detected_txt">¡Bien! Número correcto detectado</string>
+    <string name="robot_position_txt">A posición</string>
+    <string name="robot_repeat_nothing">Repetir... nada</string>
+    <string name="robot_repeat_start_txt">Inicio repetir</string>
+    <string name="robot_color_detected">Detectado color correcto</string>
+    <string name="robot_repeat_released">Fin repetir</string>
+    <string name="mission_partial_target">¡Bien! Objetivo intermedio detectado</string>
+    <string name="no_thanks">No gracias</string>
+
+    <string name="mission_load">Cargar misión</string>
+
+    <!--pantalla de ayuda-->
+    <string name="help_text">FiPL "My First Programming Language" es una app para aprender a programar.\n\nIrás descubriendo diferentes comandos para mover tu Robot por el escenario.\n\nPara crear un programa deberás arrastrar un comando desde la columna central hasta debajo del bloque Inicio.\n\nPuedes reordenar los comandos y arrastrarlos hasta la papelera para borrarlos.\nPara ejecutar el programa en el Robot debes pulsar el botón "Ejecutar".\n\nEl Robot te mostrará sus trazas de programación, logs en inglés. Esto es información muy útil para un programador: si el programa no acaba como te imaginabas podrás ver porqué leyendo el log del Robot en su consola.\nPuedes girar la consola del Robot para leerla o volver a los bloques usando el menú superior de la pantalla.\n\nTe recomiendo que uses las misiones para aprender los comandos. Puedes leer las misiones y cargarlas desde la Pantalla de Misiones en el menú de la pantalla principal.\n\nEstos son los tipos de comandos que puedes usar:\n</string>
+
+    <string name="help_move_block">Este es el comando MOVER.\nPuedes arrastrar y conectarlo debajo de otros bloques.\nPuedes pulsar la flecha y cambiar la dirección en la que quieras que se mueva el Robot: derecha, abajo, izquierda y arriba.</string>
+    <string name="help_speed_block">Este es el comando VELOCIDAD.\nPuedes arrastrar y conectarlo debajo de otros bloques.\nControla la velocidad a la que se mueve el Robot, cuanto mayor sea el número, más rápido irá el Robot.</string>
+    <string name="help_wait_block">Este es el comando ESPERAR.\nPuedes arrastrar y conectarlo debajo de otros bloques.\nEste comando hará que el Robot detenga su programa y espere. Debes darle algún evento para que pueda seguir el programa. Para ello puedes usar un bloque tipo sensor.\nPara aprender a usar este bloque te recomiendo la Misión Tres.</string>
+    <string name="help_position_block">Este es el comando POSICIÓN.\nPuedes arrastrar y conectarlo debajo de otros bloques.\nEl Robot está sobre un suelo de cuadraditos que se llama cuadrícula o matriz. El Robot entiende cada casilla con unas coordenadas de posición. Para ello cuenta los cuadrados en el eje X (horizontal) y en el eje Y (vertical). El primer cuadrado es el 1,1 el siguiente cuadrado hacia la derecha es el 1,2 y el último de la primera fila es el 1,5 ¿lo pillas?\nA veces probando se aprende más rápido.</string>
+    <string name="help_repeat_block">Este es el comando REPETIR.\nPuedes arrastrar y conectarlo debajo de otros bloques.\nEste es un bloque especial ya que "abraza" al comando que se conecta debajo. Por eso tiene otro color, para que puedas ver que bloques está conectando.\nSi el bloque repetir contecta varios bloques el Robot repetirá estos comandos una y otra vez. Esto en programación se llama un bucle.\nPara salir del bucle se usan los sensores: cuando el sensor detecte el número o color indicado el Robot saldrá del bucle y ejecutará el siguiente comando después del último conectado dentro del repetir.</string>
+    <string name="help_numberSensor_block">Este es el comando NÚMERO y tiene otra forma porque es un sensor.\nPuedes arrastrar y conectarlo a la derecha de otros bloques que tengan una muesca para aceptarlo.\nEste bloque le indica al Robot que tiene que detectar un número. El Robot tiene un sensor de número que detecta que número se ha pulsado en los botones que tiene debajo de su suelo de cuadrados.\nCuando conectes el sensor de número a un bloque el Robot repetirá el comando hasta que detecte el número.\nPuedes aprender a usar este bloque en la Misión Tres.</string>
+    <string name="help_colorsensor_block">Este es el comando COLOR y tiene otra forma porque es un sensor.\nPuedes arrastrar y conectarlo a la derecha de otros bloques que tengan una muesca para aceptarlo.\nTal vez te hayas dado cuenta, pero el Robot puede detectar el color del cuadrado en el que está. Te va mostrando el color que detecta en un cuadradito debajo de su suelo de cuadros de colores.\nCuando conectas el sensor de color a un bloque Repetir, el Robot no saldrá de su bucle Repetir hasta que se que encuentre sobre un bloque del color que hayas indicado. Puedes seleccionar el color que quieres detectar entre la lista que te muestra el color dentro del bloque.\nAsí podrás hacer que el Robot haga muchos programas diferentes... ¡pero cuidado con no chocar contra los bordes!</string>
+
+
+</resources>

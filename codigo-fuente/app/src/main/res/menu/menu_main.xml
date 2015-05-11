@@ -1,0 +1,39 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_logScreen"
+        android:title="@string/action_logScreen"
+        android:orderInCategory="1"
+        android:showAsAction="always|withText"
+        android:icon="@drawable/ic_robot_log"
+        />
+    <item
+        android:id="@+id/action_missionDialog"
+        android:title="@string/action_mission_dialog"
+        android:orderInCategory="2"
+        android:showAsAction="always|withText"
+        android:icon="@drawable/ic_read_the_mission"
+        />
+
+    <item
+        android:id="@+id/action_helpScreen"
+        android:title="@string/action_helpScreen"
+        android:orderInCategory="3"
+        android:showAsAction="always|withText"
+        android:icon="@drawable/ic_help"
+ />
+
+    <item
+        android:id="@+id/action_missionScreen"
+        android:title="@string/action_missionScreen"
+        android:showAsAction="always|withText"
+        android:orderInCategory="4"
+        android:icon="@drawable/ic_missions"
+ />
+
+    <item
+        android:id="@+id/action_closeApp"
+        android:title="@string/action_closeApp"
+        android:orderInCategory="5"
+        android:showAsAction="never" />
+</menu>

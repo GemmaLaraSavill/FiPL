@@ -1,0 +1,11 @@
+<resources>
+    <!-- Tablet de 7 pulgadas -->
+    <dimen name="activity_horizontal_margin">64dp</dimen>
+
+    <!-- command palette panel -->
+    <dimen name="command_palette_side_padding">8dp</dimen>
+
+    <!-- command blocks -->
+    <dimen name="command_block_padding_bottom">4dp</dimen>
+    <dimen name="padding_left_robot_grid">1dp</dimen>
+</resources>

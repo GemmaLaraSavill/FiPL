@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:id="@+id/mainPanel"
+    android:weightSum="1">
+
+    <!-- el escenario-->
+    <LinearLayout
+        android:id="@+id/stage"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="0.37"
+        android:weightSum="1"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/robot_grid_bg_color"
+        android:paddingTop="@dimen/padding_left_robot_grid"
+        >
+
+        <!-- el escenario de baldosas del robot -->
+        <!--framlayout para poder superponer el robot-->
+        <FrameLayout
+            android:id="@+id/gridFrame"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.76"
+            android:layout_marginLeft="@dimen/padding_left_robot_grid"
+
+            >
+        <!--grid de baldosas-->
+        <GridView
+            android:id="@+id/runArea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:verticalSpacing="0dp"
+            android:horizontalSpacing="0dp"
+            android:background="@color/robot_grid_bg_color"
+            android:numColumns="5"
+            android:stretchMode="none"
+            android:gravity="left"
+            android:columnWidth="70dp">
+        </GridView>
+        </FrameLayout>
+
+        <!-- el panel de los sensores-->
+        <LinearLayout
+            android:id="@+id/sensorPanel"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="0.12">
+
+            <!--panel de sensor de color-->
+            <LinearLayout
+                android:id="@+id/colorSensorPanel"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/colorSensorLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:text="Color"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:textColor="@color/fluorGreen"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp">
+                    <ImageView
+                        android:id="@+id/colorSensor"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="#000000" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--panel de sensor de número-->
+            <LinearLayout
+                android:id="@+id/numberSensorPanel"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/numberSensorLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:text="Number"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:textColor="@color/fluorGreen"/>
+
+                <TextView
+                    android:id="@+id/numberSensor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:text="1"
+                    android:layout_weight="1"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/fluorGreen"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <!-- el teclado de números-->
+        <GridView
+            android:id="@+id/numberKeyPad"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:numColumns="9"
+            android:stretchMode="spacingWidthUniform"
+            android:columnWidth="38dp"
+            android:layout_weight="0.12"
+            android:gravity="center">
+        </GridView>
+    </LinearLayout>
+
+    <!-- el panel de control-->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:id="@+id/programmingPanel"
+        android:layout_weight="0.62">
+
+        <FrameLayout
+            android:id="@+id/centerColumn"
+            android:layout_width="@dimen/center_column_width"
+            android:layout_height="fill_parent">
+        <!--paleta de comandos-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/commandPalette"
+            style="@style/CommandPalettePanel">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/commandPaletteTitle"
+                android:padding="5dp"
+                android:textColor="#ff000000" />
+        </LinearLayout>
+
+        <!-- la consola del log del robot-->
+        <ScrollView
+            android:id="@+id/logConsole"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:background="#333333"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/logScreen"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:padding="5dp"
+                android:textColor="@color/fluorGreen" />
+        </ScrollView>
+        </FrameLayout>
+        <!--programming canvas and bin container-->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            style="@style/ProgramCanvasPanel">
+
+            <!--programming canvas-->
+            <ScrollView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:fillViewport="true"
+                android:layout_weight="0.8">
+            <RelativeLayout
+                android:id="@+id/programCanvas"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="20dp"
+                >
+
+            <TextView
+                android:id="@+id/programmingCanvasText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/programmingCanvasTitle"
+                android:padding="10dp"
+                android:textColor="#000000"
+
+                />
+                <!--under here we will place our blocks-->
+             </RelativeLayout>
+            </ScrollView>
+
+            <!-- play stop button container-->
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.33"
+                    android:gravity="center_vertical|left"
+                    android:visibility="gone">
+                <ImageView
+                    android:id="@+id/helpArea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/help_area"
+                    android:visibility="gone"
+                    />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.33"
+                    android:gravity="center_vertical|center_horizontal">
+                <!--android:background="@drawable/run_button_images"-->
+             <ToggleButton
+                 android:id="@+id/runButton"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:textOn="@string/run_off"
+                 android:textOff="@string/run_on"
+                 android:checked="false"
+                 android:padding="20dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.33"
+                    android:gravity="center_vertical|right">
+
+             <ImageView
+                android:id="@+id/wastepaperbasket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bin_closed"
+                 android:layout_gravity="right" />
+                    </LinearLayout>
+            </LinearLayout>
+</LinearLayout>
+</LinearLayout>
+</LinearLayout>

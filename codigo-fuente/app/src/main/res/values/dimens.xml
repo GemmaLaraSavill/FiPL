@@ -1,0 +1,43 @@
+<resources>
+    <!-- Movil -->
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="param_selector_row_width">24dp</dimen>
+
+    <!-- command palette panel -->
+    <dimen name="command_palette_side_padding">5dp</dimen>
+
+    <!-- command blocks -->
+    <dimen name="command_block_height">58dp</dimen>
+    <dimen name="command_block_width">180dp</dimen>
+
+    <dimen name="center_column_width">200dp</dimen>
+
+    <!--profundidad del area de enganche derecho - sensores-->
+    <dimen name="link_area_width">11dp</dimen>
+    <!--profundidad del area de enganche vertical-->
+    <dimen name="link_area_height">18dp</dimen>
+
+    <dimen name="command_block_padding_bottom">2dp</dimen>
+
+    <dimen name="command_block_left_margin">50dp</dimen>
+    <dimen name="command_block_bottom_padding">8dp</dimen>
+    <dimen name="command_block_left_padding">20dp</dimen>
+
+
+
+    <dimen name="tile_width">70dp</dimen>
+
+    <dimen name="padding_left_robot_grid">0dp</dimen>
+    <dimen name="sensor_block_width">135dp</dimen>
+
+    <!--  pantalla ayuda (barra no incluida) -->
+    <dimen name="help_img_padd_right">10dip</dimen>
+    <dimen name="help_text_padd_top">3dip</dimen>
+    <dimen name="help_block_padd_top">5dp</dimen>
+
+
+</resources>

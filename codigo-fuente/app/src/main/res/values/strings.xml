@@ -1,0 +1,120 @@
+﻿<resources>
+    <string name="app_name">FiPL</string>
+
+    <!--action bar menu-->
+    <string name="action_helpScreen">Help</string>
+    <string name="action_missionScreen">Missions</string>
+    <string name="action_closeApp">Close app</string>
+    <string name="action_back">Back to programming</string>
+    <string name="action_logScreen">View Robot Log</string>
+    <string name="action_blockPalette">Back to command blocks</string>
+    <string name="action_mission_dialog">Mission details</string>
+
+    <string name="missions_text">Text with information about the missions</string>
+
+    <!-- command block names -->
+    <string name="start">Start</string>
+    <string name="wait">Wait</string>
+    <string name="speed">Speed</string>
+    <string name="position">Position</string>
+    <string name="move">Move</string>
+    <string name="repeat">Repeat</string>
+    <string name="color">Color</string>
+    <string name="number">Number</string>
+
+    <!-- command block parameters -->
+    <string name="param_up">Up</string>
+    <string name="param_down">Down</string>
+    <string name="param_left">Left</string>
+    <string name="param_right">Right</string>
+    <string name="texto_abajo">Area para el botón de ejecutar y tal vez mensajes al usuario</string>
+    <string name="commandPaletteTitle">Commands:</string>
+    <string name="programmingCanvasTitle">Drag your commands here:</string>
+    <string name="run_on">RUN</string>
+    <string name="run_off">STOP</string>
+
+
+    <string name="robot_ready_txt">I am ready!</string>
+    <string name="robot_start_txt">Program has started</string>
+    <string name="robot_step_right_txt">Taking a step right</string>
+    <string name="robot_step_down_txt">Taking a step down</string>
+    <string name="robot_step_left_txt">Taking a step left</string>
+    <string name="robot_step_up_txt">Taking a step up</string>
+    <string name="robot_outside_txt">Warning: obstacle</string>
+    <string name="robot_error_txt">Oh, no... ERROR!!!!!</string>
+    <string name="robot_endofprogram_txt">End of program</string>
+    <string name="robot_stopped_txt">Program interrupted</string>
+
+    <!--mission zero-->
+    <string name="mission0_title">Create a program</string>
+    <string name="mission0_subtitle">With all the blocks</string>
+    <string name="mission0_description">Use the blocks to control the Robot</string>
+
+    <!--mission one-->
+    <string name="mission1_title">Mission One</string>
+    <string name="mission1_subtitle">Introducing the MOVE block</string>
+    <string name="mission1_description">Welcome to your first mission.</string>
+    <string name="mission1_start_hint">Drag the Move block under the Start block and press RUN</string>
+
+    <!--mission two-->
+    <string name="mission2_title">Mission Two</string>
+    <string name="mission2_subtitle">Let\'s speed things up</string>
+    <string name="mission2_description">Mover el robot hasta el recuadro color rojo, pero ahora más rápido que antes</string>
+    <string name="mission2_failed_explanation">You forgot to make to Robot faster.</string>
+
+    <!--mission three-->
+    <string name="mission3_title">Mission Three</string>
+    <string name="mission3_subtitle">Using the number sensor</string>
+    <string name="mission3_description">Mover el robot hasta el recuadro color rojo una vez que hayas pulsado el número 5</string>
+    <string name="mission3_failed_explanation">The Robot has to wait until you press number five. Then he has to go to the target.</string>
+
+    <!--mission four -->
+    <string name="mission4_title">Mission Four</string>
+    <string name="mission4_subtitle">I can repeat, repeat, repeat comands</string>
+    <string name="mission4_description">Mover el robot hasta el recuadro color rojo, pero cuando llegue se posicione de nuevo en el inicio (0,0)</string>
+    <string name="mission4_failed_explanation">First the Robot has to get to the red square. Then he has to change his position to the first block. If you count the squares you can calculate the position. The first square is 1,1.</string>
+
+    <!--mission five -->
+    <string name="mission5_title">Mission Five</string>
+    <string name="mission5_subtitle"></string>
+    <string name="mission5_description"></string>
+
+
+
+    <!--general mission statements   -->
+    <string name="mission_accomplished">ON TARGET!</string>
+    <string name="mission_not_accomplished">Mission not accomplished</string>
+    <string name="try_again">Please try again</string>
+    <string name="mission_success">That was great! Ready for the next mission?</string>
+    <string name="congratulations">Congratulations</string>
+    <string name="mission_average">Not bad</string>
+    <string name="mission_average_text">You managed to solve the mission, but there is a better way to do it</string>
+
+
+    <string name="robot_waiting_for_nothing">Waiting....</string>
+    <string name="robot_waiting_dont_know">What am I waiting for?</string>
+    <string name="robot_waiting_for_number">Waiting for number</string>
+
+    <string name="robot_speed_change_txt">Speed changed to</string>
+    <string name="robot_number_detected_txt">Great! Correct number detected!</string>
+    <string name="robot_position_txt">Jumping to position</string>
+    <string name="robot_repeat_nothing">Repeating... nothing</string>
+    <string name="robot_repeat_start_txt">Starting repeat</string>
+    <string name="robot_color_detected">Correct color detected</string>
+    <string name="robot_repeat_released">Repeat released</string>
+    <string name="mission_partial_target">Great! Reached a target</string>
+    <string name="no_thanks">No thank you</string>
+
+    <string name="mission_load">Load mission</string>
+
+    <!--pantalla de ayuda-->
+    <string name="help_text">Help screen</string>
+    <string name="help_move_block">Este es el comando MOVER. Como ves tiene</string>
+    <string name="help_wait_block">Wait block</string>
+    <string name="help_position_block">Position Block</string>
+    <string name="help_repeat_block">Repeat Block</string>
+    <string name="help_numberSensor_block">Number Sensor Block</string>
+    <string name="help_colorsensor_block">Color Sensor Block</string>
+    <string name="help_speed_block">Speed Block</string>
+
+</resources>

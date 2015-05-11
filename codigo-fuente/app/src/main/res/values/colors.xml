@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--colores para las baldosas del escenario del robot-->
+    <!-- colores en formato #RRGGBB o #AARRGGBB -->
+    <array name="colors">
+        <item>#8C5AEB</item>
+        <item>#5AB6EB</item>
+        <item>#A7ED68</item>
+        <item>#F8E77D</item>
+        <item>#e84c3d</item>
+    </array>
+
+    <!--<item>#ED6C92</item>-->
+
+    <color name="solution_tile_color">#e84c3d</color>
+
+    <color name="robot_grid_bg_color">#333333</color>
+
+    <!--pantalla ayuda-->
+    <color name="txt_separator_line">#333333</color>
+
+    <!-- colores dialog-->
+    <color name="AlertDialogTitle">#ff000000</color>
+
+    <!-- Texts colors -->
+    <color name="SubHeaderText">#ff0055ff</color>
+
+    <color name="fluorGreen">#FF00FF00</color>
+
+    <!-- Buttons colors -->
+    <color name="white">#FFFFFFFF</color>
+    <color name="bg_btn_primary">#337ab7</color>
+    <color name="border_color_btn_primary">#2e6da4</color>
+    <color name="bg_btn_primary_focus">#286090</color>
+    <color name="border_color_btn_primary_focus">#204d74</color>
+    <color name="bg_btn_primary_disabled">#CCCCCC</color>
+    <color name="border_color_primary_disabled">#AAAAAA</color>
+
+</resources>

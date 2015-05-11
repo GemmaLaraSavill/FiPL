@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- estructura de un CommandBlock -->
+
+    <!-- etiqueta del bloque -->
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+      />
+
+    <!-- selector de parámetros -->
+    <Spinner
+        android:id="@+id/selector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </Spinner>
+        <!-- un segundo selector de parámetros -->
+    <Spinner
+        android:id="@+id/selector2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </Spinner>
+
+
+
+</merge>
