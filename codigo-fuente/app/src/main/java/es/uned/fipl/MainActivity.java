@@ -139,6 +139,13 @@ public class MainActivity extends Activity {
         runStopButton = (ToggleButton)findViewById(R.id.runButton);
         // elementos de la interfaz cargados
 
+        // añado Toast por si pulsan en la papelera
+        wastepaperbasket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, context.getString(R.string.wastepaperbasket_hint), Toast.LENGTH_LONG).show();
+            }
+        });
         // inicio los sensores apagados (invisibles) no todas las misiones los requiere
         activateColorSensor(false);
         activateNumberSensor(false);
