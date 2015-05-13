@@ -376,7 +376,7 @@ public class Robot implements ProgrammableObject {
                 programCounter = repeatEntry;
                 // cargo y ejecuto comando en contador de programa
                 loadCommand(commandList.get(programCounter));
-            } else if(programCounter <= programLength) {
+            } else if(programCounter < programLength) {
                 // estoy en modo repetir pero no en el inicio o final
                 // estoy dentro del bucle, incremento contador de programa
                 programCounter = programCounter + 1;
