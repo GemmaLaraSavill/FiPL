@@ -45,7 +45,7 @@ public class WasteBinDragListener implements View.OnDragListener {
                 break;
             case DragEvent.ACTION_DROP:
                 block = (CommandBlock)event.getLocalState();
-                System.out.println("Arrastrado a papelera block "+block.getId());
+//                System.out.println("Arrastrado a papelera block "+block.getId());
                 if (block.isDocked()) {
                     // si el bloque estaba conectado al programa: voy a quitar este block
                     RelativeLayout owner = (RelativeLayout) block.getParent();

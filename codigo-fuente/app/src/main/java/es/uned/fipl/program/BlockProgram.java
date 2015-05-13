@@ -40,7 +40,6 @@ public class BlockProgram extends ArrayList {
     public void addBlock(CommandBlock block, CommandBlockPosition position, int anchordId) {
         // creo el nuevo BlockLink a añadir
         BlockLink blockLink = new BlockLink(block, position, anchordId);
-
         if (tellme) { System.out.println("BlockProgram addBlock()"); }
         blockProgram.add(blockLink);
 
@@ -81,10 +80,11 @@ public class BlockProgram extends ArrayList {
 
         // iteramos el programa
         for(int i=0; i<blockProgram.size();i++) {
-
             CommandBlock block = blockProgram.get(i).getBlock();
             BlockLink link = blockProgram.get(i);
             int idAncla = blockProgram.get(i).getAnchor();
+
+//            link.printOut();
 
             // busco el BlockLink que usa el bloque a borrar como ancla
             if (idAncla == blockId && link.getPosition() == CommandBlockPosition.BELOW) {
@@ -257,6 +257,7 @@ public class BlockProgram extends ArrayList {
         // si el bloque insertado es un bloque REPETIR tendremos que añadir un fin de REPETIR al final de la lista
         if (insertLink.getBlock().getType() == CommandBlockName.REPEAT) {
             if (tellme) { System.out.println("OJO Insertando un REPEAT block"); }
+            insertLink.setRepeat(BlockLink.REPEAT_OPEN);
             int lastBlockIndex = this.getSize()-1;
             if (tellme) { System.out.println("Compruebo que insertIndex "+insertIndex+" no es el último "+lastBlockIndex); }
             if (insertIndex != lastBlockIndex) {
