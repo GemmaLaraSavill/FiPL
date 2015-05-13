@@ -89,7 +89,17 @@ public class BlockProgram extends ArrayList {
             // busco el BlockLink que usa el bloque a borrar como ancla
             if (idAncla == blockId && link.getPosition() == CommandBlockPosition.BELOW) {
                 if (tellme) {System.out.println("borrando su ancla, lo cambio por..."); }
-                int nuevoAncla = blockProgram.get(i - 2).getBlock().getId();
+                int indiceNuevoAncla = 0;
+                for(int x=i-2; x>=0; x--) {
+//                    System.out.println("busco ancla en "+x);
+                    if(blockProgram.get(x).getPosition() == CommandBlockPosition.BELOW && blockProgram.get(x).getBlock().getId() != blockId) {
+//                        System.out.println("nuevo ancla será");
+//                        blockProgram.get(x).printOut();
+                        indiceNuevoAncla = x;
+                        break;
+                    }
+                }
+                int nuevoAncla = blockProgram.get(indiceNuevoAncla).getBlock().getId();
                 if (tellme) {System.out.println("... nuevo ancla "+nuevoAncla); }
                 link.setAnchor(nuevoAncla);
             }
@@ -125,9 +135,6 @@ public class BlockProgram extends ArrayList {
                     deletingARepeatBlock = true;
                     if (tellme) { System.out.println("Borrando un Bloque REPETIR"); }
                 }
-
-
-
                 if (tellme) {System.out.println("Borro block "+block.getType()+" id "+block.getId());}
             } // fin de block a borrar encontrado
 
