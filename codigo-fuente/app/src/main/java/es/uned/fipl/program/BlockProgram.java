@@ -84,22 +84,22 @@ public class BlockProgram extends ArrayList {
             BlockLink link = blockProgram.get(i);
             int idAncla = blockProgram.get(i).getAnchor();
 
-//            link.printOut();
+            link.printOut();
 
             // busco el BlockLink que usa el bloque a borrar como ancla
             if (idAncla == blockId && link.getPosition() == CommandBlockPosition.BELOW) {
                 if (tellme) {System.out.println("borrando su ancla, lo cambio por..."); }
-                int indiceNuevoAncla = 0;
+                int newAnchorIndex = 0;
                 for(int x=i-2; x>=0; x--) {
 //                    System.out.println("busco ancla en "+x);
                     if(blockProgram.get(x).getPosition() == CommandBlockPosition.BELOW && blockProgram.get(x).getBlock().getId() != blockId) {
 //                        System.out.println("nuevo ancla será");
 //                        blockProgram.get(x).printOut();
-                        indiceNuevoAncla = x;
+                        newAnchorIndex = x;
                         break;
                     }
                 }
-                int nuevoAncla = blockProgram.get(indiceNuevoAncla).getBlock().getId();
+                int nuevoAncla = blockProgram.get(newAnchorIndex).getBlock().getId();
                 if (tellme) {System.out.println("... nuevo ancla "+nuevoAncla); }
                 link.setAnchor(nuevoAncla);
             }
@@ -235,9 +235,11 @@ public class BlockProgram extends ArrayList {
 
         // el ancla es el id del anterior tipo below
         int anchorId = get(0).getBlock().getId(); // id del bloque inicio
+        int indexOfAnchorOnList = 0;
         if (this.get(insertIndex-1).getPosition() == CommandBlockPosition.BELOW) {
             // si el anterior bloque era un BELOW será el nuevo ancla
             anchorId = this.get(insertIndex - 1).getBlock().getId();
+            indexOfAnchorOnList = insertIndex-1;
         }
 
         // creo el BlockLink que insertaremos en la lista
@@ -245,12 +247,36 @@ public class BlockProgram extends ArrayList {
         if (tellme) { System.out.println("Inserto en "+insertIndex); }
         blockProgram.add(insertIndex, insertLink);
 
-        // si el insertado no es el último de la lista el ancla del siguiente será el bloque insertado
+
+        // si NO soy el último de la lista
         if (insertIndex != blockProgram.size()-1) {
+            if (tellme) { System.out.println("No soy el último"); }
             // solo cambio ancla si soy un below
-            if (this.get(insertIndex+1).getPosition() == CommandBlockPosition.BELOW) {
-                if(tellme) { System.out.println("Cambio ancla a "+insertIndex+1); }
-                this.get(insertIndex+1).setAnchor(droppedBlock.getId());
+            if (this.get(insertIndex + 1).getPosition() == CommandBlockPosition.BELOW) {
+                if (tellme) {
+                    System.out.println("Cambio ancla a " + insertIndex + 1);
+                }
+                this.get(insertIndex + 1).setAnchor(droppedBlock.getId());
+            }
+
+            // si soy el penúltimo de la lista
+            if(insertIndex == blockProgram.size()-2) {
+                if (tellme) { System.out.println("Soy el penúltimo"); }
+                // pero el último es un sensor
+                // si mi ancla es Repetir seré fin de bucle
+                if (this.get(indexOfAnchorOnList).getBlock().getType() == CommandBlockName.REPEAT) {
+                    if (this.get(insertIndex + 1).getBlock().isSensor()) {
+                        // mi ancla es un Repetir, soy fin de repetir
+                        insertLink.setRepeat(BlockLink.REPEAT_LAST);
+                    }
+                }
+            }
+        } else {
+            if (tellme) { System.out.println("Soy el último");  }
+            // soy el último de la lista, si mi ancla es Repetir soy cierre de bucle
+            if (this.get(indexOfAnchorOnList).getBlock().getType() == CommandBlockName.REPEAT) {
+                // mi ancla es un Repetir, soy fin de repetir
+                insertLink.setRepeat(BlockLink.REPEAT_LAST);
             }
         }
 
@@ -261,14 +287,26 @@ public class BlockProgram extends ArrayList {
             int lastBlockIndex = this.getSize()-1;
             if (tellme) { System.out.println("Compruebo que insertIndex "+insertIndex+" no es el último "+lastBlockIndex); }
             if (insertIndex != lastBlockIndex) {
+                // no he insertado el último
                 if (get(lastBlockIndex).getPosition() == CommandBlockPosition.BELOW) {
                     if (tellme) {
                         System.out.println("Repeat close a " + lastBlockIndex);
                     }
-                    get(lastBlockIndex).setRepeat(BlockLink.REPEAT_LAST);
+                    if (get(lastBlockIndex).getBlock().getType() != CommandBlockName.REPEAT) {
+                        // si el último no es un sensor y no es repetir
+                        get(lastBlockIndex).setRepeat(BlockLink.REPEAT_LAST);
+                    }
+                } else {
+                    if (lastBlockIndex-1 != insertIndex) {
+                        // el último no era BELOW el penúltimo tiene que serlo
+                        get(lastBlockIndex - 1).setRepeat(BlockLink.REPEAT_LAST);
+                    }
                 }
             }
         }
-        if (tellme) { this.printOut(); }
+
+
+        if (tellme) { this.printOut();
+        }
      }
 }
