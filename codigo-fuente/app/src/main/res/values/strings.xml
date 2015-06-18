@@ -94,6 +94,7 @@
     <string name="robot_waiting_for_nothing">Waiting....</string>
     <string name="robot_waiting_dont_know">What am I waiting for?</string>
     <string name="robot_waiting_for_number">Waiting for number</string>
+    <string name="robot_waiting_color">I can\'t get to that color!!</string>
 
     <string name="robot_speed_change_txt">Speed changed to</string>
     <string name="robot_number_detected_txt">Great! Correct number detected!</string>

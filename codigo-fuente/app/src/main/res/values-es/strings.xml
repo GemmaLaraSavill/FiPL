@@ -90,6 +90,7 @@
     <string name="robot_waiting_for_nothing">Esperando....</string>
     <string name="robot_waiting_dont_know">No sé que espero</string>
     <string name="robot_waiting_for_number">Esperando que se pulse el botón número</string>
+    <string name="robot_waiting_color">No puedo llegar hasta el color!</string>
     <string name="robot_speed_change_txt">Velocidad a</string>
     <string name="robot_number_detected_txt">¡Bien! Número correcto detectado</string>
     <string name="robot_position_txt">A posición</string>

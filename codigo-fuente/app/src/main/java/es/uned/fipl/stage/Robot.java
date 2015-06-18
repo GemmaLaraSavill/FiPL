@@ -1,3 +1,23 @@
+/*
+* Copyright 2015 Gemma Samantha Lara Savill
+* FiPL My First Programming Language
+* Proyecto de Fin de Grado en Ingeniería en Tecnologías de la Información
+* en la Universidad Nacional de Educación a Distancia UNED España
+*
+* Final project for my Bachelor of Science in Information Technology Engineering
+* At the Spanish National Distance University UNED
+* Project manager Dr. Anselmo Peñas Padilla
+
+* Licensed under the EUPL, Version 1.1 or – as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "Licence");
+* You may not use this work except in compliance with the Licence.
+* You may obtain a copy of the Licence at:
+*
+* http://ec.europa.eu/idabc/eupl
+*
+* Unless required by applicable law or agreed to in writing, software distributed under the Licence is distributed on an "AS IS" basis,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the Licence for the specific language governing permissions and limitations under the Licence.
+*/
 package es.uned.fipl.stage;
 
 import android.animation.Animator;
@@ -77,6 +97,7 @@ public class Robot implements ProgrammableObject {
     private final TextView numberSensor; // texto que contiene el valor del último nº detectado
     private String numberTarget; // número que se quiere detectar
     private String lastNumberPressed; // último número pulsado (detectado)
+    private boolean waitMode = false;
 
     // sensor de color
     private boolean colorSensorActivated = false; // activado si o no
@@ -195,6 +216,7 @@ public class Robot implements ProgrammableObject {
         programLength = commandList.size()-1; // restamos uno por Start
         if (tellme) {
             System.out.println("Robot: ejecuto programa de " + programLength + " comandos");
+            program.printProgram();
         }
 
         // empezamos en posición de inicio
@@ -207,6 +229,7 @@ public class Robot implements ProgrammableObject {
         numberSensorActivated = false;
         colorSensorActivated = false;
         repeatMode = false;
+        waitMode = false;
         repeatEntry = 0;
         repeatEscape = 0;
         programCounter = 1; // se inicia en 1, comando 0 es siempre Inicio: no hace nada
@@ -231,7 +254,6 @@ public class Robot implements ProgrammableObject {
      * @param command CodeCommand trae el tipo de comando y sus parámetros específicos
      */
     private void loadCommand(CodeCommand command) {
-        tellme = true;
 
         if (tellme) {
             System.out.println("Cargo comando PC "+programCounter);
@@ -256,8 +278,10 @@ public class Robot implements ProgrammableObject {
         } else if (command.getCommandName().equals(CommandBlockName.WAIT.toString())) {
             // ejecutar una espera
             this.waitAction();
+            waitMode = true;
         } else if (command.getCommandName().equals(CommandBlockName.REPEAT.toString())) {
             // inicio de un bucle, la posición del último comando del bucle viene como parámetro
+            numberSensorActivated = false;
             if (programLength > programCounter) {
                 repeatMode = true;
                 repeatEntry = programCounter + 1;
@@ -276,16 +300,25 @@ public class Robot implements ProgrammableObject {
             // comando sensor: viene siempre inmediatamente detrás de su target
             // repito el comando anterior hasta encontrar el color o fin de programa
             CodeCommand lastCommand = commandList.get(programCounter - 1);
-            if (tellme) { System.out.println("color tras "+lastCommand.getCommandName()); }
+            if (tellme) { System.out.println("color tras " + lastCommand.getCommandName()); }
+
             colorTarget = command.getCommandParameter();
             String nowColor = getColor();
 //            if (tellme) { System.out.println("Color " + nowColor + " esperando " + colorTarget); }
+            if (lastCommand.getCommandName().equals(CommandBlockName.WAIT.toString())) {
+                if (!nowColor.equals(colorTarget)) {
+                    writeToLogScreen(context.getString(R.string.robot_waiting_color));
+                    badEnding();
+                } else {
+                    advanceProgram();
+                }
+            }
             colorSensorActivated = true;
             if (lastCommand.getCommandName().equals(CommandBlockName.REPEAT.toString())) {
                 if (repeatMode) {
                     if (repeatEntry<programLength) {
                         // si la diferencia entre entry y escape tal actualizo
-                        repeatEntry = repeatEntry + 1; // no hay que activar el sensor en cada bucle
+                        repeatEntry = repeatEntry+1; // no hay que activar el sensor en cada bucle
                         repeatEscape = repeatEscape+1;
                         programCounter = repeatEntry-1;
                         if (tellme) { System.out.println("Inicio bucle en busca de color. PC a " + programCounter); }
@@ -322,6 +355,9 @@ public class Robot implements ProgrammableObject {
                         }
                     }
                 }
+                numberTarget = "";
+                numberSensorActivated = false;
+                if (waitMode) { waitMode = false; }
                 advanceProgram();
             } else {
                 numberSensorActivated = true;
@@ -329,7 +365,7 @@ public class Robot implements ProgrammableObject {
                     if (repeatMode) {
                         if (repeatEntry < programLength) {
                             repeatEntry = repeatEntry + 1; // no hay que activar el sensor en cada bucle
-                            repeatEscape = repeatEscape + 1;
+                            repeatEscape = repeatEscape+1;
                             programCounter = repeatEntry-1;
                             if (tellme) {
                                 System.out.println("Inicio bucle en espera de número. PC a " + programCounter);
@@ -351,7 +387,9 @@ public class Robot implements ProgrammableObject {
     private void advanceProgram() {
         if (tellme) { System.out.println("Advance program"); }
         if(!repeatMode) {
-            // no estamos en modo bucle
+//        if ((repeatMode && waitMode) || !repeatMode) {
+            waitMode = false;
+            // no modo bucle
             if (tellme) { System.out.println("PC en "+programCounter+" de "+programLength); }
             if(programCounter < programLength) {
                 // si no he llegado al final incremento contador de programa
@@ -561,6 +599,7 @@ public class Robot implements ProgrammableObject {
             robotAction.cancel();
         }
             repeatMode = false;
+            waitMode = false;
             if (robotView.getAnimation() != null) {
                 robotView.getAnimation().cancel();
             }
@@ -850,7 +889,11 @@ public class Robot implements ProgrammableObject {
             lastNumberPressed = charSequence.toString();
             if (tellme) { System.out.println("Detectado número: " + lastNumberPressed); }
             if (numberSensorActivated) {
-                if (!repeatMode) {
+                if (repeatMode && waitMode) {
+                    // espera dentro de bucle
+//                    System.out.println("espera dentro de bucle");
+                    advanceProgram();
+                } else if (!repeatMode) {
                     // si no estoy en modo bucle avanzo el programa
                     advanceProgram();
                     // los bucles verifican el cambio de número al final de su ciclo
@@ -929,7 +972,6 @@ public class Robot implements ProgrammableObject {
          */
         @Override
         public void onAnimationEnd(Animator animation) {
-            // TODO revisar, creo que se puede mejorar / simplificar
             if (tellme) {
                 System.out.println("Comando ejecutado: avanzo programa");
                 System.out.println("Fin de paso -> actualizo sensor color");
@@ -959,7 +1001,7 @@ public class Robot implements ProgrammableObject {
                 if (lastNumberPressed.equals(numberTarget)) {
                     // se ha pulsado el número que espera un comando
                     writeToLogScreen(context.getString(R.string.robot_number_detected_txt));
-                    if (repeatMode) {
+                    if (repeatMode && !waitMode) {
                         // si este número me libera de un bucle
                         repeatMode = false;
                         // contador de programa a final del bucle
@@ -969,6 +1011,8 @@ public class Robot implements ProgrammableObject {
                         repeatEscape = 0;
                         writeToLogScreen(context.getString(R.string.robot_repeat_released));
                     }
+                    numberTarget = "";
+                    if (waitMode) { waitMode  =false; }
                     numberSensorActivated = false;
                 }
             }

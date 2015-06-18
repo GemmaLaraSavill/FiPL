@@ -1,3 +1,23 @@
+/*
+* Copyright 2015 Gemma Samantha Lara Savill
+* FiPL My First Programming Language
+* Proyecto de Fin de Grado en Ingeniería en Tecnologías de la Información
+* en la Universidad Nacional de Educación a Distancia UNED España
+*
+* Final project for my Bachelor of Science in Information Technology Engineering
+* At the Spanish National Distance University UNED
+* Project manager Dr. Anselmo Peñas Padilla
+
+* Licensed under the EUPL, Version 1.1 or – as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "Licence");
+* You may not use this work except in compliance with the Licence.
+* You may obtain a copy of the Licence at:
+*
+* http://ec.europa.eu/idabc/eupl
+*
+* Unless required by applicable law or agreed to in writing, software distributed under the Licence is distributed on an "AS IS" basis,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the Licence for the specific language governing permissions and limitations under the Licence.
+*/
 package es.uned.fipl.program;
 
 import java.util.ArrayList;
@@ -38,16 +58,21 @@ public class BlockProgram extends ArrayList {
      * @param anchordId id del View (CommandBlock) al que se conecta
      */
     public void addBlock(CommandBlock block, CommandBlockPosition position, int anchordId) {
+
+
         // creo el nuevo BlockLink a añadir
         BlockLink blockLink = new BlockLink(block, position, anchordId);
         if (tellme) { System.out.println("BlockProgram addBlock()"); }
         blockProgram.add(blockLink);
+
 
         if (tellme) { System.out.println("Añado block " + block.getType() + " " + position + " de " + anchordId); }
 
         if (block.getType() == CommandBlockName.REPEAT) {
             // si es un bloque Repetir guardo la info en el blockLink
             blockLink.setRepeat(BlockLink.REPEAT_OPEN);
+            // quito cualquier otro repetir open
+            removeOtherRepeatBlocks(blockProgram.size() - 1);
         } else if (!block.isSensor()) {
             // compruebo si su ancla es un bloque repetir
             int anchorBlockIndex = getBlockIndex(anchordId);
@@ -60,6 +85,79 @@ public class BlockProgram extends ArrayList {
                 }
             }
         }
+    }
+
+    /**
+     * Sólo puede quedar uno
+     * Para niños de primaria no anidar Repeats
+     */
+    private void removeOtherRepeatBlocks(int repeatIdThatRemains) {
+        System.out.println("removeOtherRepeatBlocks except " + repeatIdThatRemains);
+        this.printOut();
+        int indexOfBlockToEliminate = -1;
+        int oldAnchor = -1;
+        int oldSensor = -1;
+        BlockLink newRepeatLink = null;
+        for(int i=0; i<blockProgram.size();i++) {
+            if (i != repeatIdThatRemains) {
+                BlockLink link = blockProgram.get(i);
+                CommandBlock block = link.getBlock();
+                if (block.getType() == CommandBlockName.REPEAT) {
+                    // sólo puede quedar uno
+                    oldAnchor = blockProgram.get(i).getAnchor();
+                    indexOfBlockToEliminate = i;
+                    if(block.hasSensorConnected()) {
+                        oldSensor = block.getRightSideSensorId();
+                    }
+                }
+            } else {
+                newRepeatLink = blockProgram.get(i);
+            }
+        }
+        if (indexOfBlockToEliminate > -1 && oldAnchor > -1) {
+            BlockLink toBeGone = blockProgram.get(indexOfBlockToEliminate);
+            BlockLink lastOnList = null;
+            // ahora busco el que usa el ancla que voy a borrar
+            for (int i = 0; i < blockProgram.size(); i++) {
+                BlockLink link = blockProgram.get(i);
+
+                if (link.getBlock().getType() != CommandBlockName.REPEAT && i < blockProgram.size() - 1) {
+//                    link.printOut();
+                    link.setRepeat(BlockLink.REPEAT_NONE);
+                }
+                if (link.getAnchor() == toBeGone.getBlock().getId()) {
+//                    link.printOut();
+                    link.setAnchor(oldAnchor);
+                }
+                if (link.getBlock().getId() == oldSensor) {
+                    if (newRepeatLink != null) {
+//                        newRepeatLink.printOut();
+//                        link.printOut();
+                        newRepeatLink.getBlock().setSensorConnected(true);
+                        newRepeatLink.getBlock().setRightSideSensor(link.getBlock().getId());
+                        link.setAnchor(newRepeatLink.getBlock().getId());
+                    }
+                }
+                if (i != indexOfBlockToEliminate) {
+                    if (!link.getBlock().isSensor() && link.getBlock().getType() != CommandBlockName.REPEAT) {
+                        lastOnList = link;
+                    }
+                    if (link.getBlock().getType() == CommandBlockName.REPEAT) {
+                        lastOnList = null;
+                    }
+                }
+            }
+            blockProgram.remove(indexOfBlockToEliminate);
+            if (lastOnList != null) {
+                System.out.println("last on list");
+                lastOnList.printOut();
+                lastOnList.setRepeat(BlockLink.REPEAT_LAST);
+            } else {
+                System.out.println("last on list is NULL");
+            }
+        }
+        printOut();
+
     }
 
     /**
@@ -223,7 +321,7 @@ public class BlockProgram extends ArrayList {
         if (tellme) { System.out.println("BlockProgram insertBlock()"); }
         // desactivo el conector de repetir
         droppedBlock.activateRepeatConnector(false, droppedBlock.getContext());
-        if (tellme) { this.printOut(); }
+//        if (tellme) { this.printOut(); }
 
         // indice donde insertar
         int insertIndex = getBlockIndex(receiverBlock);
@@ -244,8 +342,10 @@ public class BlockProgram extends ArrayList {
 
         // creo el BlockLink que insertaremos en la lista
         BlockLink insertLink = new BlockLink(droppedBlock, CommandBlockPosition.BELOW, anchorId);
-        if (tellme) { System.out.println("Inserto en "+insertIndex); }
+        if (tellme) { System.out.println("Inserto en " + insertIndex); }
         blockProgram.add(insertIndex, insertLink);
+
+
 
 
         // si NO soy el último de la lista
@@ -305,8 +405,11 @@ public class BlockProgram extends ArrayList {
             }
         }
 
-
-        if (tellme) { this.printOut();
+        if (droppedBlock.getType() == CommandBlockName.REPEAT) {
+            // sólo puede quedar uno
+            removeOtherRepeatBlocks(insertIndex);
         }
+
+        if (tellme) { this.printOut(); }
      }
 }
