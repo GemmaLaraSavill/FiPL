@@ -15,7 +15,7 @@ Para crear un programa el usuario debe arrastrar comandos hasta el escritorio y 
 Al pulsar el botón de Ejecutar se iniciará el programa y el robot ejecutará los comandos en el orden que hayan sido dispuestos.<br>
 El objetivo del sistema es permitir a niños de primaria aprender el concepto de programa, como secuencia de comandos, de forma fácil y divertida. <br>
 El sistema les permitirá crear programas como antes se creaban objetos con bloques de Lego, uniendo módulos (comandos) aprenderán a conseguir que el robot realice las acciones que ellos quieran.<br>
-Para que el aprendizaje sea escalonado, cuando ejecute el sistema por primera vez, al usuario se le irá mostrando los comandos de forma escalonada durante una serie de 5 misiones que el usuario puede completar. Serán muy simples y el objetivo de cada misión será introducir el uso de uno o dos comandos nuevos.<br>
+Para que el aprendizaje sea escalonado, cuando ejecute el sistema por primera vez, al usuario se le irá mostrando los comandos de forma escalonada durante una serie de 4 misiones que el usuario puede completar. Serán muy simples y el objetivo de cada misión será introducir el uso de uno o dos comandos nuevos.<br>
 
 # Requisitos
 Tablet entre 7 y 10 pulgadas con 1 Gb RAM<br>
