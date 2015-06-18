@@ -1,5 +1,11 @@
 # FiPL
-FiPL "My First Programming Language" por Gemma Lara Savill. Proyecto Fin de Grado 2015. Grado en Ingeniería en Tecnologías de la Información UNED
+FiPL "My First Programming Language" por Gemma Lara Savill. 
+2015 Proyecto de Fin de Grado en Ingeniería en Tecnologías de la Información
+en la Universidad Nacional de Educación a Distancia UNED España
+
+Final project for my Bachelor of Science in Information Technology Engineering
+At the Spanish National Distance University UNED
+Project manager Dr. Anselmo Peñas Padilla
 
 ![Alt text](https://github.com/GemmaLaraSavill/FiPL/blob/master/capturas-pantalla/nexus7.png "FiPL en tablet Nexus 7")
 
