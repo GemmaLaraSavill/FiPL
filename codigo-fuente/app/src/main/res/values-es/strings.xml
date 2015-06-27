@@ -54,7 +54,7 @@
     <!--mision dos-->
     <string name="mission2_title">Misión Dos</string>
     <string name="mission2_subtitle">Vamos a darle velocidad</string>
-    <string name="mission2_description">Ahora vamos a probar con el comando Velocidad.\n\nVuelve a crear un programa que que mueva el Robot hasta la estrella, pero ahora más rápido que antes.</string>
+    <string name="mission2_description">Ahora vamos a probar con el comando Velocidad.\n\nVuelve a crear un programa que mueva el Robot hasta la estrella, pero ahora más rápido que antes.</string>
     <string name="mission2_failed_explanation">Se te ha olvidado incrementar la velocidad del Robot.\n\n¡Inténtalo de nuevo!</string>
 
     <!--mision tres-->
